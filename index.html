@@ -1,49 +1,433 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090d19">
 <title>Astra Study | Lengua y Comunicación III</title>
 <style>
-:root{--bg:#090d19;--card:#131b2e;--line:#2a3652;--txt:#f4f6ff;--muted:#a8b4cf;--violet:#a293ff;--cyan:#72e8d8;--green:#67e4a4;--red:#ff879a}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0,#27234c 0,transparent 38%),var(--bg);color:var(--txt);font:15px/1.55 system-ui,Segoe UI,sans-serif}
-.wrap{max-width:1100px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:25px}.brand{display:flex;gap:11px;align-items:center}.logo{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,var(--violet),#658cff);display:grid;place-items:center;font-weight:900;font-size:20px;color:#090d19}.brand small,.muted{display:block;color:var(--muted);font-size:12px}.pill{border:1px solid var(--line);padding:7px 11px;border-radius:30px;color:var(--muted);font-size:12px}
-.hero,.card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#171f35,#111729);padding:23px;margin-bottom:15px}.hero{padding:32px;border-color:#41416a}.eyebrow{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--cyan);font-weight:800}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.07;letter-spacing:-1.5px;margin:12px 0}.hero p{max-width:620px;color:var(--muted)}
-.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:800;background:linear-gradient(135deg,var(--violet),#7b91ff);color:#090d19;cursor:pointer}.btn.alt{background:#202a43;border:1px solid var(--line);color:var(--txt)}.btn:disabled{opacity:.4;cursor:default}.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{padding:12px;border-radius:13px;background:#0c1323;border:1px solid var(--line)}.stat strong{font-size:23px;display:block}.stat span{font-size:11px;color:var(--muted)}
-.mode{width:100%;display:flex;gap:13px;align-items:center;text-align:left;margin-top:9px;padding:14px;background:#0c1425;color:var(--txt);border:1px solid var(--line);border-radius:14px;cursor:pointer}.mode:hover{border-color:var(--violet)}.ico{width:40px;height:40px;display:grid;place-items:center;background:#29264c;border-radius:12px;font-size:20px}.mode small{display:block;color:var(--muted);font-size:12px}.arrow{margin-left:auto;color:var(--muted)}.progress{height:7px;border-radius:20px;background:#29324a;overflow:hidden;margin:9px 0}.progress i{height:100%;display:block;background:linear-gradient(90deg,var(--violet),var(--cyan));width:0}.topic{padding:12px 0;border-bottom:1px solid var(--line)}.topic:last-child{border:0}.topichead{display:flex;justify-content:space-between;gap:10px}.tag{font-size:11px;color:var(--cyan)}
-.screen{display:none}.screen.active{display:block}.head{display:flex;align-items:center;gap:12px;margin:15px 0}.head h2{margin:0}.study{max-width:780px;margin:25px auto;padding:clamp(20px,5vw,38px);border:1px solid #414b70;border-radius:24px;background:linear-gradient(145deg,#171f35,#101626)}.qtop{display:flex;justify-content:space-between;gap:10px}.study h3{font-size:clamp(22px,4vw,30px);line-height:1.3}.answer{width:100%;text-align:left;padding:13px;margin:5px 0;border-radius:12px;border:1px solid var(--line);background:#0c1425;color:var(--txt);cursor:pointer}.answer.correct{border-color:var(--green);background:#123126}.answer.wrong{border-color:var(--red);background:#351b2a}.feedback{padding:13px;border-radius:12px;background:#1b2942;color:var(--muted);margin:12px 0}.good{color:var(--green)}.bad{color:var(--red)}.actions{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
-.hidden{display:none!important}.login{max-width:470px;margin:8vh auto}.login input,.writebox{width:100%;padding:14px;border-radius:12px;border:1px solid var(--line);background:#0b1222;color:var(--txt);margin:8px 0 14px}.notice{padding:12px;border-radius:12px;background:#302719;color:#ffe1a0;font-size:12px;margin-top:15px}.footer{text-align:center;color:#7784a2;font-size:11px;padding:25px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#202a43;padding:12px 18px;border-radius:12px;border:1px solid var(--line);z-index:5}.lesson-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.lesson-card{background:#0c1425;border:1px solid var(--line);border-radius:15px;padding:16px}.lesson-card h3{margin:5px 0 8px}.lesson-card p{color:var(--muted);font-size:13px}.lesson-card button{margin-top:8px}.lesson-body{max-width:850px;margin:20px auto}.lesson-body h3{color:var(--cyan)}.lesson-body li{margin:8px 0}.lesson-callout{padding:14px;border-left:3px solid var(--violet);background:#1a2037;border-radius:8px;margin:14px 0}
-.gamer-voice{background:linear-gradient(135deg,#17172d,#242044);border:1px solid #7060d8;border-radius:18px;padding:18px;margin:20px 0;color:#fff}.gamer-voice h3{margin:0 0 8px}.gamer-voice p{color:#c9c5e8;margin:8px 0 14px}.gamer-voice label{display:block;margin:12px 0 6px;font-size:13px}.gamer-voice select,.gamer-voice input{width:100%;box-sizing:border-box;padding:10px;border-radius:9px;border:1px solid #514c79;background:#101020;color:white}.gamer-buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.gamer-buttons button{padding:10px 13px;border:0;border-radius:9px;cursor:pointer;font-weight:700;background:#7765ed;color:white}.gamer-buttons button:hover{filter:brightness(1.15)}#gamerStatus{margin-top:13px;font-size:13px;color:#b9f5c8}
-@media(max-width:740px){.wrap{padding:13px}.grid{grid-template-columns:1fr}.hero{padding:23px}.stats{gap:6px}.stat strong{font-size:20px}.pill{max-width:130px;overflow:hidden;text-overflow:ellipsis}.lesson-grid{grid-template-columns:1fr}}
+:root {
+  --bg:#090d19; --card:#141d32; --line:#2b3753;
+  --text:#f4f6ff; --muted:#a8b4cf;
+  --violet:#a293ff; --cyan:#72e8d8;
+  --green:#67e4a4; --red:#ff879a;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; background:radial-gradient(ellipse at top right,#27234c,transparent 40%),var(--bg);
+  color:var(--text);font:15px/1.6 system-ui,sans-serif;
+}
+button,input,textarea {font:inherit}
+button {cursor:pointer}
+.wrap {max-width:1100px;margin:auto;padding:22px}
+.top {display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}
+.brand {display:flex;align-items:center;gap:12px}
+.logo {width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--violet),#648cff);display:grid;place-items:center;color:#090d19;font-size:22px;font-weight:900}
+.brand small,.muted {display:block;color:var(--muted);font-size:12px}
+.card,.hero {background:linear-gradient(145deg,#171f35,#111729);border:1px solid var(--line);border-radius:20px;padding:23px;margin-bottom:16px}
+.hero {padding:32px;border-color:#44416b}
+.eyebrow {color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+h1 {font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-1px}
+h2 {font-size:23px}
+.btn {padding:12px 17px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--violet),#7b91ff);color:#090d19;font-weight:800}
+.btn.alt {background:#202a43;border:1px solid var(--line);color:var(--text)}
+.btn:disabled {opacity:.4;cursor:default}
+.grid {display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
+.stats {display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:22px}
+.stat {background:#0c1323;border:1px solid var(--line);border-radius:13px;padding:12px}
+.stat strong {font-size:23px;display:block}
+.stat span {font-size:11px;color:var(--muted)}
+.mode {display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#0c1425;color:var(--text);border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0}
+.mode:hover,.lesson:hover {border-color:var(--violet)}
+.mode small {display:block;color:var(--muted);font-size:12px}
+.ico {width:40px;height:40px;flex-shrink:0;border-radius:12px;background:#29264c;display:grid;place-items:center;font-size:20px}
+.arrow {margin-left:auto;color:var(--muted)}
+.progress {height:7px;background:#29324a;border-radius:20px;overflow:hidden;margin:10px 0}
+.progress i {height:100%;display:block;background:linear-gradient(90deg,var(--violet),var(--cyan))}
+.topic {padding:12px 0;border-bottom:1px solid var(--line)}
+.topichead {display:flex;justify-content:space-between;gap:10px}
+.tag {color:var(--cyan);font-size:11px}
+.lesson-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.lesson {padding:17px;background:#0c1425;border:1px solid var(--line);border-radius:15px}
+.lesson h3 {margin:8px 0}
+.lesson p {font-size:13px;color:var(--muted)}
+.screen {display:none}
+.screen.active {display:block}
+.head {display:flex;align-items:center;gap:13px;margin:20px 0}
+.head h2 {margin:0}
+.lesson-body {max-width:850px;margin:20px auto;line-height:1.8}
+.lesson-body h3 {color:var(--cyan);margin-top:25px}
+.lesson-body li {margin:9px 0}
+.callout {padding:15px;border-left:3px solid var(--violet);background:#1a2037;border-radius:8px;margin:16px 0}
+.study {max-width:780px;margin:25px auto;padding:clamp(20px,5vw,38px);background:linear-gradient(145deg,#171f35,#101626);border:1px solid #414b70;border-radius:23px}
+.qtop {display:flex;justify-content:space-between;gap:10px}
+.study h3 {font-size:clamp(22px,4vw,30px);line-height:1.3}
+.answer {width:100%;text-align:left;padding:13px;margin:5px 0;border-radius:12px;border:1px solid var(--line);background:#0c1425;color:var(--text)}
+.answer.correct {border-color:var(--green);background:#123126}
+.answer.wrong {border-color:var(--red);background:#351b2a}
+.feedback {padding:13px;border-radius:12px;background:#1b2942;color:var(--muted);margin:12px 0}
+.good {color:var(--green)}
+.bad {color:var(--red)}
+.actions {display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+.input {width:100%;padding:14px;background:#0b1222;border:1px solid var(--line);border-radius:12px;color:var(--text);margin:8px 0 14px}
+.hidden {display:none!important}
+.login {max-width:470px;margin:8vh auto}
+.notice {padding:12px;border-radius:12px;background:#302719;color:#ffe1a0;font-size:12px;margin-top:15px}
+.footer {text-align:center;color:#7784a2;font-size:11px;padding:25px}
+@media(max-width:740px) {
+ .wrap {padding:13px}
+ .grid,.lesson-grid {grid-template-columns:1fr}
+ .hero {padding:23px}
+ .stats {gap:6px}
+ .stat strong {font-size:20px}
+}
 </style>
 </head>
 <body>
+
 <div id="login" class="wrap">
-<header class="top"><div class="brand"><div class="logo">A</div><div><b>ASTRA STUDY</b><small>Tu entrenamiento para el examen</small></div></div><span class="pill">MODO ESTUDIO</span></header>
-<section class="card login"><div class="eyebrow">Tu misión empieza aquí</div><h1>Estudia mejor.<br><span style="color:var(--violet)">Ve por el 10.</span></h1><p class="muted">Lengua y Comunicación III · CETis 58 · Grupo 3HM</p><form id="loginForm"><label for="email">Tu correo electrónico</label><input id="email" type="email" placeholder="tu.correo@ejemplo.com" required><button class="btn" style="width:100%">Entrar a mi espacio →</button></form><div class="notice">Esta versión guarda tus avances en este navegador y dispositivo. El correo identifica tu perfil, pero no crea una cuenta en la nube.</div></section>
+  <header class="top">
+    <div class="brand"><div class="logo">A</div><div><b>ASTRA STUDY</b><small>Tu entrenamiento para el examen</small></div></div>
+    <span class="muted">MODO ESTUDIO</span>
+  </header>
+  <section class="card login">
+    <div class="eyebrow">Tu misión empieza aquí</div>
+    <h1>Estudia mejor.<br><span style="color:var(--violet)">Ve por el 10.</span></h1>
+    <p class="muted">Lengua y Comunicación III · CETis 58 · Grupo 3HM</p>
+    <form id="loginForm">
+      <label for="email">Tu correo electrónico</label>
+      <input class="input" id="email" type="email" placeholder="tu.correo@ejemplo.com" required>
+      <button class="btn" style="width:100%">Entrar a mi espacio →</button>
+    </form>
+    <div class="notice">Esta versión guarda el progreso en este navegador. El correo identifica tu perfil, pero no crea una cuenta en la nube.</div>
+  </section>
 </div>
+
 <div id="app" class="wrap hidden">
-<header class="top"><div class="brand"><div class="logo">A</div><div><b>ASTRA STUDY</b><small>Lengua y Comunicación III</small></div></div><div style="display:flex;gap:8px;align-items:center"><span class="pill" id="user"></span><button class="btn alt" id="change">Cambiar</button></div></header>
+<header class="top">
+  <div class="brand"><div class="logo">A</div><div><b>ASTRA STUDY</b><small>Lengua y Comunicación III</small></div></div>
+  <div><span class="muted" id="user"></span><button class="btn alt" id="change">Cambiar</button></div>
+</header>
+
 <main id="home" class="screen active">
-<section class="hero"><div class="eyebrow">CETis 58 · Tijuana, Otay · Grupo 3HM</div><h1>Hoy entrenas.<br>Mañana lo dominas.</h1><p>Tu guía convertida en práctica. Aprende conceptos, comprueba lo que recuerdas y vuelve a los temas que todavía cuestan.</p><button class="btn" onclick="start('quiz')">Empezar entrenamiento →</button><div class="stats"><div class="stat"><strong id="xp">0</strong><span>XP ganados</span></div><div class="stat"><strong id="mastered">0/16</strong><span>Conceptos dominados</span></div><div class="stat"><strong id="correctTotal">0</strong><span>Respuestas correctas</span></div></div></section>
-<div class="grid"><section class="card"><h2>Elige cómo aprender</h2><p class="muted">Cambia de método para recordar durante más tiempo.</p>
-<button class="mode" onclick="start('flash')"><span class="ico">◈</span><span><b>Tarjetas de memoria</b><small>Revela la respuesta y comprueba si la recordabas.</small></span><span class="arrow">→</span></button>
-<button class="mode" onclick="start('quiz')"><span class="ico">✓</span><span><b>Reto de conocimientos</b><small>Opción múltiple con explicación.</small></span><span class="arrow">→</span></button>
-<button class="mode" onclick="start('write')"><span class="ico">✎</span><span><b>Recuerdo activo</b><small>Escribe la respuesta sin verla primero.</small></span><span class="arrow">→</span></button>
-<button class="mode" onclick="start('exam')"><span class="ico">◷</span><span><b>Simulacro de examen</b><small>10 preguntas mezcladas.</small></span><span class="arrow">→</span></button>
-<button class="mode" onclick="start('errors')"><span class="ico">↻</span><span><b>Repasar mis errores</b><small>Practica de nuevo lo que fallaste.</small></span><span class="arrow">→</span></button>
-</section><aside class="card"><div class="eyebrow">Tu nivel actual</div><h2 id="levelName">Explorador · Nivel 1</h2><p class="muted" id="levelxp">0/100 XP para el siguiente nivel</p><div class="progress"><i id="levelbar"></i></div><h3>Ruta de estudio</h3><div id="topics"></div></aside>
-<section class="card" style="grid-column:1/-1"><h2>Tu estrategia para sacar 10</h2><div class="grid"><div><div class="eyebrow">01 · Comprende</div><p class="muted">Explica cada idea con tus propias palabras.</p></div><div><div class="eyebrow">02 · Recuerda</div><p class="muted">Contesta sin mirar y practica lo que cuesta.</p></div><div><div class="eyebrow">03 · Comprueba</div><p class="muted">Haz simulacros y repite hasta mejorar.</p></div></div></section></div>
-<section class="card"><div class="eyebrow">Aprende desde cero</div><h2>Biblioteca de aprendizaje</h2><p class="muted">Estudia cada tema con una explicación sencilla, ejemplos y lo que debes recordar para el examen.</p><div id="lessonCards" class="lesson-grid"></div></section>
+  <section class="hero">
+    <div class="eyebrow">CETis 58 · Tijuana, Otay · Grupo 3HM</div>
+    <h1>Hoy entrenas.<br>Mañana lo dominas.</h1>
+    <p class="muted">Aprende los temas de tu guía, practica con preguntas y revisa lo que necesitas reforzar.</p>
+    <button class="btn" onclick="start('quiz')">Empezar entrenamiento →</button>
+    <div class="stats">
+      <div class="stat"><strong id="xp">0</strong><span>XP ganados</span></div>
+      <div class="stat"><strong id="mastered">0/16</strong><span>Conceptos dominados</span></div>
+      <div class="stat"><strong id="correctTotal">0</strong><span>Respuestas correctas</span></div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Modos de aprendizaje</h2>
+      <button class="mode" onclick="start('flash')"><span class="ico">◈</span><span><b>Tarjetas de memoria</b><small>Revela y memoriza respuestas.</small></span><span class="arrow">→</span></button>
+      <button class="mode" onclick="start('quiz')"><span class="ico">✓</span><span><b>Reto de conocimientos</b><small>Preguntas con explicaciones.</small></span><span class="arrow">→</span></button>
+      <button class="mode" onclick="start('write')"><span class="ico">✎</span><span><b>Recuerdo activo</b><small>Escribe lo que recuerdas.</small></span><span class="arrow">→</span></button>
+      <button class="mode" onclick="start('exam')"><span class="ico">◷</span><span><b>Simulacro de examen</b><small>10 preguntas mezcladas.</small></span><span class="arrow">→</span></button>
+      <button class="mode" onclick="start('errors')"><span class="ico">↻</span><span><b>Repasar errores</b><small>Vuelve a practicar lo que fallaste.</small></span><span class="arrow">→</span></button>
+    </section>
+    <aside class="card">
+      <div class="eyebrow">Tu nivel actual</div>
+      <h2 id="levelName">Explorador · Nivel 1</h2>
+      <p class="muted" id="levelxp">0/100 XP para el siguiente nivel</p>
+      <div class="progress"><i id="levelbar" style="width:0%"></i></div>
+      <h3>Ruta de estudio</h3><div id="topics"></div>
+    </aside>
+  </div>
+
+  <section class="card">
+    <div class="eyebrow">Aprende desde cero</div>
+    <h2>Biblioteca de aprendizaje</h2>
+    <p class="muted">Lee las explicaciones, estudia ejemplos y luego comprueba lo que aprendiste.</p>
+    <div id="lessonCards" class="lesson-grid"></div>
+  </section>
+  <section class="card">
+    <h2>Tu estrategia para sacar 10</h2>
+    <div class="grid">
+      <div><div class="eyebrow">01 · Comprende</div><p class="muted">Entiende la idea con tus propias palabras.</p></div>
+      <div><div class="eyebrow">02 · Recuerda</div><p class="muted">Practica sin mirar las respuestas.</p></div>
+      <div><div class="eyebrow">03 · Comprueba</div><p class="muted">Haz simulacros y corrige tus errores.</p></div>
+    </div>
+  </section>
 </main>
-<main id="learn" class="screen"><div class="head"><button class="btn alt" onclick="home()">← Inicio</button><div><h2>Aprender por temas</h2><span class="muted">Lecciones rápidas</span></div></div><section id="lessonContent" class="card lesson-body"></section></main>
-<main id="study" class="screen"><div class="head"><button class="btn alt" onclick="home()">← Inicio</button><div><h2 id="modeTitle">Entrenamiento</h2><span class="muted" id="subtitle">Paso a paso</span></div></div><section class="study"><div class="qtop"><span class="eyebrow" id="qnum">PREGUNTA 1</span><span class="pill" id="qtopic">Tema</span></div><h3 id="question">Pregunta</h3><div id="answers"></div><div id="feedback" class="feedback hidden"></div><div class="actions"><button class="btn alt" id="hint" onclick="showHint()">Pista</button><button class="btn" id="next" disabled onclick="next()">Siguiente →</button></div></section><p class="muted" style="text-align:center" id="count"></p></main>
-<main id="result" class="screen"><section class="card" style="max-width:700px;margin:35px auto;text-align:center;padding:35px"><div style="font-size:44px;color:var(--violet)">✦</div><div class="eyebrow">Entrenamiento completado</div><h1 id="resultTitle">¡Buen trabajo!</h1><p class="muted" id="resultText"></p><div class="stats"><div class="stat"><strong id="score">0%</strong><span>Precisión</span></div><div class="stat"><strong id="resultCorrect">0/0</strong><span>Aciertos</span></div><div class="stat"><strong id="resultXP">+0</strong><span>XP obtenidos</span></div></div><div class="actions" style="justify-content:center"><button class="btn" onclick="start('quiz')">Practicar otra vez</button><button class="btn alt" onclick="home()">Ver progreso</button></div></section></main>
-<footer class="footer">ASTRA STUDY · Aplicación de práctica basada en la guía compartida. Si la explicación de clase difiere, prioriza tus apuntes.</footer>
+
+<main id="learn" class="screen">
+  <div class="head"><button class="btn alt" onclick="home()">← Inicio</button><div><h2>Aprender por temas</h2><span class="muted">Lecciones rápidas</span></div></div>
+  <section id="lessonContent" class="card lesson-body"></section>
+</main>
+
+<main id="study" class="screen">
+  <div class="head"><button class="btn alt" onclick="home()">← Inicio</button><div><h2 id="modeTitle">Entrenamiento</h2><span class="muted" id="subtitle">Paso a paso</span></div></div>
+  <section class="study">
+    <div class="qtop"><span class="eyebrow" id="qnum"></span><span class="muted" id="qtopic"></span></div>
+    <h3 id="question"></h3>
+    <div id="answers"></div>
+    <div id="feedback" class="feedback hidden"></div>
+    <div class="actions"><button class="btn alt" id="hint" onclick="showHint()">Pista</button><button class="btn" id="next" disabled onclick="next()">Siguiente →</button></div>
+  </section>
+  <p class="muted" style="text-align:center" id="count"></p>
+</main>
+
+<main id="result" class="screen">
+  <section class="card" style="max-width:700px;margin:35px auto;text-align:center">
+    <div class="eyebrow">Entrenamiento completado</div>
+    <h1 id="resultTitle">¡Buen trabajo!</h1><p class="muted" id="resultText"></p>
+    <div class="stats"><div class="stat"><strong id="score">0%</strong><span>Precisión</span></div><div class="stat"><strong id="resultCorrect">0/0</strong><span>Aciertos</span></div><div class="stat"><strong id="resultXP">+0</strong><span>XP obtenidos</span></div></div>
+    <div class="actions"><button class="btn" onclick="start('quiz')">Practicar otra vez</button><button class="btn alt" onclick="home()">Ver progreso</button></div>
+  </section>
+</main>
+<footer class="footer">ASTRA STUDY · Aplicación de práctica basada en tu guía.</footer>
 </div>
-<div id="toast" class="toast hidden"></div>
 
 <script>
-const C=[
+const C = [
+{id:'ensayo',t:'El ensayo',q:'¿Qué es un ensayo?',a:'Es un texto en el que se investiga y desarrolla un tema con información confiable.',h:'Investigar un tema y explicar información confiable.',o:['Un texto que investiga y desarrolla un tema con información confiable.','Una lista de palabras sin relación.','Un diálogo teatral.','Una historia siempre ficticia.'],c:0,w:'El ensayo desarrolla un tema con información confiable.'},
+{id:'tipos',t:'El ensayo',q:'¿Cuáles son los tres tipos de ensayo que aparecen en tu guía?',a:'Filosófico, social y literario.',h:'Uno se relaciona con ideas, otro con la sociedad y otro con la literatura.',o:['Científico, deportivo y musical.','Filosófico, social y literario.','Narrativo, dramático y cómico.','Corto, mediano y largo.'],c:1,w:'Tu guía menciona filosófico, social y literario.'},
+{id:'caracteristicas',t:'El ensayo',q:'Menciona tres características del ensayo.',a:'No es muy largo, utiliza información confiable y plantea el tema.',h:'Extensión, confiabilidad y enfoque.',o:['Es muy largo y no tiene tema.','No es muy largo, usa información confiable y plantea el tema.','Siempre tiene rima.','No necesita organización.'],c:1,w:'Son las tres características anotadas en la guía.'},
+{id:'partes',t:'Partes del ensayo',q:'¿Cuáles son las partes de un ensayo?',a:'Introducción, desarrollo o nudo y conclusión.',h:'Inicio, parte central y cierre.',o:['Título, índice y bibliografía.','Personajes, conflicto y desenlace.','Introducción, desarrollo y conclusión.','Portada, dibujos y anexos.'],c:2,w:'La estructura básica es introducción, desarrollo y conclusión.'},
+{id:'intro',t:'Partes del ensayo',q:'¿Cuál es la función de la introducción?',a:'Presentar el tema y dar información inicial para que el lector se interese.',h:'Es el comienzo: presenta el tema.',o:['Presentar el tema y orientar al lector.','Repetir todas las ideas.','Dar únicamente la opinión final.','Incluir ejemplos sin explicar nada.'],c:0,w:'La introducción presenta el tema y ofrece información inicial.'},
+{id:'desarrollo',t:'Partes del ensayo',q:'¿Qué función cumple el desarrollo o nudo?',a:'Explicar el tema con más detalle e incluir ejemplos cuando corresponda.',h:'Es la parte central y detallada.',o:['Despedir al lector.','Explicar el tema con detalle y aportar ejemplos.','Presentar únicamente el título.','Terminar con una frase.'],c:1,w:'En el desarrollo se amplía y explica el tema.'},
+{id:'conclusion',t:'Partes del ensayo',q:'¿Cuál es la función de la conclusión?',a:'Cerrar el tema, recuperar las ideas importantes y presentar la idea final.',h:'Es el cierre del texto.',o:['Introducir un tema distinto.','Añadir datos sin relación.','Cerrar el tema y expresar la idea final.','Repetir palabra por palabra la introducción.'],c:2,w:'La conclusión cierra y sintetiza lo expuesto.'},
+{id:'elementos',t:'Comprensión lectora',q:'¿Cuáles son los cuatro elementos para comprender el sentido global de un texto?',a:'Tema, ideas principales, organización del texto y conocimientos previos.',h:'¿De qué trata? ¿Qué es esencial? ¿Cómo se ordena? ¿Qué sé?',o:['Tema, ideas principales, organización y conocimientos previos.','Autor, editorial, precio y páginas.','Rima, métrica, diálogo y escenario.','Portada, personajes, conflicto y desenlace.'],c:0,w:'Es la lista de cuatro elementos escrita en la guía.'},
+{id:'tema',t:'Comprensión lectora',q:'¿Qué permite identificar el tema de un texto?',a:'Reconocer de qué trata el texto.',h:'El tema responde: ¿de qué trata?',o:['Reconocer de qué trata el texto.','Conocer la edad del lector.','Evitar leer el texto.','Contar únicamente los párrafos.'],c:0,w:'El tema expresa el asunto general del texto.'},
+{id:'principales',t:'Comprensión lectora',q:'¿Qué beneficio tiene identificar las ideas principales?',a:'Reconocer la información esencial y comprender la idea central.',h:'Distingue lo esencial de los detalles secundarios.',o:['Hace que el texto tenga más páginas.','Ayuda a identificar lo más importante.','Elimina la organización.','Solo sirve para corregir ortografía.'],c:1,w:'Las ideas principales expresan lo esencial del texto.'},
+{id:'organizacion',t:'Comprensión lectora',q:'¿En qué consiste la organización de un texto?',a:'Ordenar y clasificar las ideas para facilitar la comprensión.',h:'Piensa en el orden y la relación entre ideas.',o:['Cambiar todas las palabras por sinónimos.','Ordenar y clasificar las ideas para facilitar la comprensión.','Escribir sin secuencia.','Memorizar únicamente el título.'],c:1,w:'La organización ayuda a que las ideas tengan una secuencia comprensible.'},
+{id:'previos',t:'Comprensión lectora',q:'¿Qué habilidades básicas ayudan a aprovechar la lectura?',a:'Vocabulario básico, fluidez, atención y memoria.',h:'Palabras, ritmo, concentración y recuerdo.',o:['Fuerza, equilibrio, salto y velocidad.','Vocabulario básico, fluidez, atención y memoria.','Rima, teatro, pintura y música.','Solo leer en voz alta.'],c:1,w:'La guía menciona vocabulario básico, fluidez, atención y memoria.'},
+{id:'clasica',t:'Literatura',q:'¿Qué obra y autor aparecen como ejemplo de literatura clásica?',a:'La Ilíada, de Homero.',h:'La obra comienza con la cólera de Aquiles.',o:['La Odisea, de Dante.','La Ilíada, de Homero.','Don Quijote, de Shakespeare.','La Eneida, de Cervantes.'],c:1,w:'La guía pone como ejemplo La Ilíada — Homero.'},
+{id:'iliada',t:'Literatura',q:'¿De qué trata principalmente La Ilíada?',a:'De la cólera de Aquiles y acontecimientos de la guerra de Troya.',h:'Recuerda la frase de tus apuntes: la cólera de Aquiles.',o:['Una expedición espacial.','La cólera de Aquiles y la guerra de Troya.','La vida de un estudiante moderno.','Una historia de detectives.'],c:1,w:'La Ilíada es un poema épico griego relacionado con la guerra de Troya y Aquiles.'},
+{id:'medieval',t:'Literatura',q:'Según tus apuntes, ¿cómo se describe la literatura medieval?',a:'Tus apuntes indican que hoy se usa menos y que se relaciona con lo religioso.',h:'Recuerda las dos ideas que aparecen en tus apuntes.',o:['Solo trata de tecnología moderna.','Se relaciona con lo religioso y hoy se usa menos en la vida cotidiana.','Son textos exclusivamente científicos actuales.','Son instrucciones para máquinas.'],c:1,w:'Esta respuesta sigue la descripción de tus apuntes.'},
+{id:'literatura',t:'Literatura',q:'¿Qué debes escribir si te piden un ejemplo de literatura clásica con autor y obra?',a:'Homero — La Ilíada.',h:'La pregunta pide dos elementos: autor y obra.',o:['Solo el nombre de un género.','Un autor y una obra: Homero y La Ilíada.','Una opinión sin mencionar libros.','El nombre de la escuela.'],c:1,w:'La guía pide un ejemplo con autor y obra.'}
+];
+
+const lessons = [
+{id:'ensayo',title:'1. El ensayo',tag:'Conceptos básicos',body:`
+<h3>¿Qué es un ensayo?</h3>
+<p>Es un texto en el que se investiga y desarrolla un tema con información confiable. El autor organiza sus ideas y puede presentar su punto de vista.</p>
+<div class="callout"><b>Respuesta para memorizar:</b><br>Un ensayo investiga y desarrolla un tema usando información confiable.</div>
+<h3>Tipos de ensayo de tu guía</h3>
+<ul><li><b>Filosófico:</b> reflexiona sobre ideas y preguntas profundas.</li><li><b>Social:</b> analiza temas relacionados con la sociedad.</li><li><b>Literario:</b> trata temas de literatura y obras.</li></ul>
+<h3>Tres características</h3><ol><li>No suele ser muy largo.</li><li>Utiliza información confiable.</li><li>Plantea claramente el tema.</li></ol>
+<h3>Ejemplo</h3><p>Un ensayo sobre cómo las redes sociales influyen en estudiantes, apoyado en fuentes confiables.</p>`},
+{id:'partes',title:'2. Partes del ensayo',tag:'Estructura',body:`
+<h3>Las tres partes</h3>
+<ol><li><b>Introducción:</b> presenta el tema y da información inicial para interesar al lector.</li><li><b>Desarrollo o nudo:</b> explica el tema con más detalle; puede incluir argumentos y ejemplos.</li><li><b>Conclusión:</b> cierra el tema, recupera las ideas importantes y expresa una idea final.</li></ol>
+<div class="callout"><b>Truco de memoria:</b> Introducción = presento; desarrollo = explico; conclusión = cierro.</div>
+<h3>Ejemplo: cuidar el agua</h3>
+<ul><li><b>Introducción:</b> el agua es necesaria para la vida.</li><li><b>Desarrollo:</b> explica el desperdicio y da ejemplos de ahorro.</li><li><b>Conclusión:</b> resume por qué debemos cuidarla.</li></ul>`},
+{id:'comprension',title:'3. Comprensión lectora',tag:'Sentido global',body:`
+<h3>Los cuatro elementos de tu guía</h3>
+<ol><li><b>Tema:</b> de qué trata el texto en general.</li><li><b>Ideas principales:</b> la información más importante.</li><li><b>Organización del texto:</b> cómo se ordenan y conectan las ideas.</li><li><b>Conocimientos previos:</b> lo que ya sabes antes de leer.</li></ol>
+<div class="callout"><b>Pregunta clave:</b> ¿De qué trata?, ¿qué es lo esencial?, ¿cómo está ordenado?, ¿qué sé previamente?</div>
+<h3>Habilidades para leer mejor</h3><p>La guía menciona vocabulario básico, fluidez, atención y memoria. El vocabulario ayuda a comprender palabras; la fluidez permite leer con continuidad; la atención permite concentrarse y la memoria ayuda a retener información.</p>
+<h3>Ejemplo</h3><p>En un texto sobre contaminación, el tema es la contaminación; una idea principal puede ser que afecta la salud; la organización muestra causas y consecuencias; los conocimientos previos son lo que ya sabes sobre el problema.</p>`},
+{id:'literatura',title:'4. Literatura clásica y medieval',tag:'Autores y obras',body:`
+<h3>Literatura clásica</h3><p>Memoriza el ejemplo escrito en tu guía:</p><div class="callout"><b>La Ilíada — Homero</b></div>
+<p><i>La Ilíada</i> es un poema épico griego relacionado con la guerra de Troya y la cólera de Aquiles.</p>
+<h3>Literatura medieval</h3><p>En tus apuntes se indica que actualmente se usa menos y que se relaciona con lo religioso. Aprende la formulación de tu clase y utiliza las explicaciones que haya dado tu profesora.</p>
+<h3>Cómo responder autor y obra</h3><p>Escribe ambos elementos claramente: <b>autor: Homero; obra: La Ilíada.</b></p>
+<div class="callout"><b>Importante:</b> la guía que compartiste termina durante el ejemplo de La Ilíada. Si tienes más páginas, podemos añadir los contenidos que faltan.</div>`}
+];
+
+let email='',key='',d={},list=[],idx=0,mode='quiz',right=0,earned=0,done=false;
+const $=id=>document.getElementById(id);
+const fresh=()=>({xp:0,correct:0,attempts:0,mastery:{},errors:[],history:[]});
+
+$('loginForm').onsubmit=e=>{
+ e.preventDefault();
+ email=$('email').value.trim().toLowerCase();
+ key='astra_study_v1_'+email;
+ try{d=JSON.parse(localStorage.getItem(key))||fresh()}catch(e){d=fresh()}
+ d.mastery ||= {};d.errors ||= [];d.history ||= [];
+ d.xp ||= 0;d.correct ||= 0;d.attempts ||= 0;
+ save();
+ $('login').classList.add('hidden');$('app').classList.remove('hidden');
+ $('user').textContent=email;render();renderLessons();
+};
+
+$('change').onclick=()=>{
+ $('app').classList.add('hidden');$('login').classList.remove('hidden');$('email').value=email;
+};
+
+function save(){try{localStorage.setItem(key,JSON.stringify(d))}catch(e){toast('No se pudo guardar el progreso.')}}
+function mastered(){return C.filter(c=>(d.mastery[c.id]||0)>=3).length}
+
+function render(){
+ $('xp').textContent=d.xp;
+ $('mastered').textContent=mastered()+'/'+C.length;
+ $('correctTotal').textContent=d.correct;
+ let lv=Math.floor(d.xp/100)+1;
+ let names=['Explorador','Aprendiz','Practicante','Estratega','Experto','Maestro','Leyenda'];
+ $('levelName').textContent=(names[Math.min(lv-1,6)]||'Leyenda')+' · Nivel '+lv;
+ $('levelxp').textContent=(d.xp%100)+'/100 XP para el siguiente nivel';
+ $('levelbar').style.width=(d.xp%100)+'%';
+ const groups=[
+ {n:'El ensayo',ids:['ensayo','tipos','caracteristicas']},
+ {n:'Partes del ensayo',ids:['partes','intro','desarrollo','conclusion']},
+ {n:'Comprensión lectora',ids:['elementos','tema','principales','organizacion','previos']},
+ {n:'Literatura',ids:['clasica','iliada','medieval','literatura']}
+ ];
+ $('topics').innerHTML=groups.map(g=>{
+ let n=g.ids.filter(id=>(d.mastery[id]||0)>=3).length;
+ return `<div class="topic"><div class="topichead"><b>${g.n}</b><span class="tag">${n}/${g.ids.length} dominados</span></div><div class="progress"><i style="width:${n/g.ids.length*100}%"></i></div></div>`;
+ }).join('');
+}
+
+function renderLessons(){
+ $('lessonCards').innerHTML=lessons.map(l=>`
+ <article class="lesson">
+ <div class="eyebrow">${l.tag}</div><h3>${l.title}</h3>
+ <p>Explicación sencilla, conceptos clave y ejemplos para estudiar.</p>
+ <button class="btn alt" onclick="openLesson('${l.id}')">Estudiar tema →</button>
+ </article>`).join('');
+}
+
+function screen(s){['home','learn','study','result'].forEach(x=>$(x).classList.toggle('active',x===s))}
+function home(){screen('home');render()}
+
+function openLesson(id){
+ const l=lessons.find(x=>x.id===id);if(!l)return;
+ $('lessonContent').innerHTML=`<div class="eyebrow">${l.tag}</div><h2>${l.title}</h2>${l.body}
+ <div class="actions"><button class="btn alt" onclick="home()">← Volver</button><button class="btn" onclick="startLessonQuiz('${id}')">Practicar este tema →</button></div>`;
+ screen('learn');
+}
+
+function shuffle(a){return a.map(x=>[Math.random(),x]).sort((x,y)=>x[0]-y[0]).map(x=>x[1])}
+
+function start(m){
+ mode=m;right=0;earned=0;idx=0;
+ let a=[...C];
+ if(m==='errors'){
+  a=C.filter(c=>d.errors.includes(c.id));
+  if(!a.length){toast('¡No tienes errores guardados!');mode='quiz';a=[...C]}
+ }
+ if(mode==='exam'||mode==='quiz')a=shuffle(a).slice(0,10);else a=shuffle(a);
+ list=a;screen('study');
+ $('modeTitle').textContent=({flash:'Tarjetas de memoria',quiz:'Reto de conocimientos',write:'Recuerdo activo',exam:'Simulacro de examen',errors:'Repasar mis errores'})[mode];
+ $('subtitle').textContent=mode==='exam'?'Simulacro de 10 preguntas':'Aprende y practica a tu ritmo';
+ renderQ();
+}
+
+function startLessonQuiz(id){
+ const ids=id==='comprension'?['elementos','tema','principales','organizacion','previos']:
+ id==='partes'?['partes','intro','desarrollo','conclusion']:
+ id==='literatura'?['clasica','iliada','medieval','literatura']:
+ ['ensayo','tipos','caracteristicas'];
+ mode='quiz';right=0;earned=0;idx=0;
+ list=shuffle(C.filter(c=>ids.includes(c.id)));
+ screen('study');$('modeTitle').textContent='Práctica del tema';
+ $('subtitle').textContent='Comprueba lo que acabas de aprender';renderQ();
+}
+
+function renderQ(){
+ done=false;let c=list[idx];
+ $('qnum').textContent=`PREGUNTA ${idx+1} DE ${list.length}`;
+ $('qtopic').textContent=c.t;$('question').textContent=c.q;
+ $('feedback').className='feedback hidden';
+ $('next').disabled=true;$('next').textContent=idx===list.length-1?'Ver resultados →':'Siguiente →';
+ $('hint').classList.toggle('hidden',mode==='flash');
+ $('count').textContent=`${idx} de ${list.length} completadas`;
+ let a=$('answers');a.innerHTML='';
+ if(mode==='flash'){
+  a.innerHTML=`<button class="btn" id="reveal">Revelar respuesta</button>
+  <div id="revealArea" class="hidden"><div class="feedback">${c.a}</div>
+  <p class="muted">¿Qué tan bien la recordaste?</p>
+  <button class="btn alt" onclick="rate(false)">Necesito repasar</button>
+  <button class="btn" onclick="rate(true)">Lo sabía ✓</button></div>`;
+  $('reveal').onclick=()=>{$('revealArea').classList.remove('hidden');$('reveal').classList.add('hidden')};
+ }else if(mode==='write'){
+  a.innerHTML=`<textarea id="typed" class="input" rows="3" placeholder="Escribe la respuesta con tus propias palabras..."></textarea>
+  <button class="btn alt" onclick="checkWrite()">Comprobar respuesta</button><div id="written" class="feedback hidden"></div>`;
+ }else{
+  let opts=c.o.map((o,i)=>({o,i}));
+  if(mode==='exam')opts=shuffle(opts);
+  a.innerHTML=opts.map(x=>`<button class="answer" data-n="${x.i}">${x.o}</button>`).join('');
+  a.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>choose(+b.dataset.n,b));
+ }
+}
+
+function showHint(){let f=$('feedback');f.textContent='Pista: '+list[idx].h;f.className='feedback'}
+
+function record(c,ok,points){
+ d.attempts++;
+ if(ok){
+  d.correct++;d.xp+=points;earned+=points;
+  d.mastery[c.id]=(d.mastery[c.id]||0)+1;
+  d.errors=d.errors.filter(x=>x!==c.id);right++;
+ }else{
+  d.mastery[c.id]=Math.max(0,(d.mastery[c.id]||0)-1);
+  if(!d.errors.includes(c.id))d.errors.push(c.id);
+ }
+ d.history.push({id:c.id,correct:ok,mode,date:Date.now()});
+ if(d.history.length>300)d.history=d.history.slice(-300);
+ save();
+}
+
+function choose(n,b){
+ if(done)return;done=true;
+ let c=list[idx],ok=n===c.c;record(c,ok,10);
+ $('answers').querySelectorAll('.answer').forEach(x=>{
+  x.disabled=true;
+  if(+x.dataset.n===c.c)x.classList.add('correct');
+  else if(x===b&&!ok)x.classList.add('wrong');
+ });
+ let f=$('feedback');
+ f.textContent=(ok?'¡Correcto! +10 XP. ':'No es esa. ')+c.w;
+ f.className='feedback '+(ok?'good':'bad');
+ $('next').disabled=false;$('count').textContent=`${idx+1} de ${list.length} completadas`;
+}
+
+function checkWrite(){
+ if(done)return;
+ let val=$('typed').value.trim();
+ if(!val){toast('Escribe una respuesta primero.');return}
+ done=true;let c=list[idx];
+ const clean=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+ let words=clean(val).split(/\W+/).filter(w=>w.length>3);
+ let target=clean(c.a+' '+c.q);
+ let matches=words.filter(w=>target.includes(w));
+ let ok=matches.length>=Math.min(3,Math.max(1,words.length*.35));
+ record(c,ok,10);
+ let w=$('written');
+ w.innerHTML=`<b>${ok?'¡Buen intento! +10 XP':'Compara tu respuesta con la idea clave'}</b><p>${c.a}</p><small>La evaluación es aproximada; compara el significado, no solo las palabras exactas.</small>`;
+ w.className='feedback '+(ok?'good':'');
+ $('next').disabled=false;$('count').textContent=`${idx+1} de ${list.length} completadas`;
+}
+
+function rate(ok){
+ let c=list[idx];done=true;record(c,ok,5);
+ $('next').disabled=false;$('count').textContent=`${idx+1} de ${list.length} completadas`;
+ toast(ok?'+5 XP':'Añadido al repaso');
+}
+
+function next(){
+ if(!done)return;
+ if(idx<list.length-1){idx++;renderQ()}else finish();
+}
+
+function finish(){
+ screen('result');
+ let p=Math.round(right/list.length*100);
+ $('score').textContent=p+'%';
+ $('resultCorrect').textContent=right+'/'+list.length;
+ $('resultXP').textContent='+'+earned;
+ $('resultTitle').textContent=p>=90?'¡Nivel sobresaliente!':p>=70?'¡Vas por buen camino!':'Cada intento te acerca al 10';
+ $('resultText').textContent=p>=90?'Excelente. Repasa más tarde para reforzar la memoria.':p>=70?'Buen avance. Repite los conceptos que fallaste y después intenta el simulacro.':'Revisa las explicaciones y practica otra vez.';
+ render();
+}
+
+function toast(t){
+ let el=document.createElement('div');
+ el.className='feedback';el.textContent=t;
+ document.body.appendChild(el);
+ el.style.position='fixed';el.style.bottom='12px';el.style.left='12px';el.style.zIndex='10';
+ setTimeout(()=>el.remove(),2200);
+}
+</script>
+</body>
+</html>
